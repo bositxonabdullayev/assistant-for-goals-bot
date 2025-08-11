@@ -118,4 +118,17 @@ async def cal_on(m: Message):
 
 @router.message(Command('calendar_test'))
 async def cal_test(m: Message):
-    await m.answer("Calendar test: yaqin eventlar — TODO.")
+    await m.answer("Calendar test:@router.message(Command('menu'))
+async def cmd_menu(m: Message):
+    from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+
+    kb = ReplyKeyboardMarkup(
+        keyboard=[
+            [KeyboardButton(text='/tadd'), KeyboardButton(text='/tlist')],
+            [KeyboardButton(text='/addexp'), KeyboardButton(text='/addin')],
+            [KeyboardButton(text='/rep')]
+        ],
+        resize_keyboard=True
+    )
+    await m.answer("Quyidagi tugmalardan birini tanlang:", reply_markup=kb)
+
