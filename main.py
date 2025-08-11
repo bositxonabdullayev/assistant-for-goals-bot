@@ -1,4 +1,6 @@
 import os
+from db import init_db
+
 from dotenv import load_dotenv
 from fastapi import FastAPI, Request
 from aiogram import Bot, Dispatcher
@@ -27,6 +29,11 @@ def health():
     return {"ok": True}
 
 @app.on_event("startup")
+    
+
 async def on_startup():
-    if WEBHOOK_URL:
-        await bot.set_webhook(WEBHOOK_URL)
+            init_db()
+
+
+   if WEBHOOK_URL:
+           await bot.set_webhook(WEBHOOK_URL)
