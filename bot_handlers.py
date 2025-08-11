@@ -32,6 +32,7 @@ async def cmd_tlist(m: Message):
     if not data:
         return await m.answer("Bo'sh.")
     lines = []
+
     for col in data:
         lines.append(f"**{col['column']}**")
         for it in col['items']:
@@ -129,9 +130,10 @@ async def cmd_menu(m: Message):
     from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
     kb = ReplyKeyboardMarkup(
-        keyboard=[tlist
+        
             [KeyboardButton(text='/tadd'), KeyboardButton(text='/tlist')],
             [[KeyboardButton(text='/addexp'), KeyboardButton(text='/addin')],
-        resize_keyboard=True
+        resize_keyb
+             oardTrue
     )
     await m.answer("Quyidagi tugmalardan birini tanlang:", reply_markup=kb)
